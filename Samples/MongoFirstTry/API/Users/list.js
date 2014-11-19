@@ -5,7 +5,7 @@ module.exports=function(req, res) {
     MongoClient.connect(config.db.mongoBase, function(err, db) {
         var col = db.collection('users');
         col.find().toArray(function(err, items) {
-            res.json(items);
+            if(req.params.callback!=''){res.jsonp(items);}else{res.json(items);}
             db.close();
         });
     });
