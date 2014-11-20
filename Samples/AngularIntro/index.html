@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Into to Angular</title>
+</head>
+<body>
+    <div ng-app="techFu">
+        <H1>Sample Controller</H1>
+         <div ng-controller="mainController">
+             {{ message }}
+             <ul ng-Repeat="user in users">
+                 <li>{{user.firstName + ' ' + user.lastName}}</li>
+             </ul>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script>
+        var app = angular.module("techFu", []);
+        var apiRoot = "http://localhost:8080/";
+        app.controller('mainController', ['$scope','$http', function($scope,$http) {
+            $scope.message = 'Welcome to the wonderful world of MVVM!';
+            $http.jsonp(apiRoot + 'users?callback=JSON_CALLBACK').
+                    success(function(data, status, headers, config) {
+                        $scope.users = data;
+                        $scope.message="Hello Angular! Users were successfully loaded!";
+                    }).
+                    error(function(data, status, headers, config) {
+                        $scope.error = true;
+                    });
+        }]);
+    </script>
+</body>
+</html>
