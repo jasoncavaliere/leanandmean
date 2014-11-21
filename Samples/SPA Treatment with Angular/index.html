@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TechFu</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div ng-app="techFu" >
+        <div ng-controller="headerController as header">
+            <H1>{{title}}</H1>
+        </div>
+        <hr>
+        <div ng-controller="navController as nav"  >
+             <ul class="list-inline">
+                 <li ng-Repeat="link in links"><a href="{{link.href}}">{{link.text}}</a></li>
+            </ul>
+        </div>
+        <hr>
+         <div ng-controller="mainController as main">
+             {{ message }}
+             <ul>
+                 <li ng-Repeat="user in users">{{user.firstName + ' ' + user.lastName}}</li>
+             </ul>
+        </div>
+        <hr>
+        <div ng-controller="footerController as footer">
+            <H1>{{footerMessage}}</H1>
+            <ul class="list-inline">
+                <li ng-Repeat="link in footerLinks"><a href="{{link.href}}">{{link.text}}</a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+    <script src="application.js"></script>
+</body>
+</html>
