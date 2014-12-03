@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html ng-controller="mainController">
 <head>
     <meta charset="utf-8" />
-    <title>AngularJS lazy loading modules</title>
+    <link ng-repeat="stylesheet in header.stylesheets" ng-href="{{stylesheet.href}}" type="{{stylesheet.type}}" rel="stylesheet" />
+<title>AngularJS lazy loading modules</title>
 </head>
 <body>
-<div ng-controller="mainController">
-    <div top-navigation></div>
+<div >
+    <div ng-header></div>
+    <div ng-navigation></div>
     Hello {{greetMe}}!
+    <ul>
+        <li ng-Repeat="user in users">{{user.firstName + ' ' + user.lastName}}</li>
+    </ul>
+    <div ng-footer></div>
 </div>
 <!-- Make sure to use your own version of require.js in your project -->
 <script data-main="main.js" src="//marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>

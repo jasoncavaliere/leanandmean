@@ -5,7 +5,7 @@ define(['angularAMD','angular-ui-router'], function (angularAMD) {
 
     app.config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/login");
-
+;
         $stateProvider
             .state('public',
             ngAMD.route({
