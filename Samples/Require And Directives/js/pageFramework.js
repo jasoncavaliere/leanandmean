@@ -28,12 +28,13 @@ define(['angular'], function (angular)
             }
 
         }
-        var exports = {};
-        exports.setPageFramework =function(controllerScope){
-            controllerScope.header = globalData.headerModel;
-            controllerScope.topNav=globalData.topNav;
-            controllerScope.footer=globalData.footer;
-        }
+        var exports = {
+            setPageFramework :function(controllerScope){
+                controllerScope.header = globalData.headerModel;
+                controllerScope.topNav=globalData.topNav;
+                controllerScope.footer=globalData.footer;
+            }
+        };
         return exports ;
     });
 });

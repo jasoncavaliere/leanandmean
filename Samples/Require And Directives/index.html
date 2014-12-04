@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <link ng-repeat="stylesheet in header.stylesheets" ng-href="{{stylesheet.href}}" type="{{stylesheet.type}}" rel="stylesheet" />
-<title>AngularJS lazy loading modules</title>
+    <title>AngularJS lazy loading modules</title>
 </head>
 <body>
 <div >
@@ -16,6 +16,6 @@
     <div ng-footer></div>
 </div>
 <!-- Make sure to use your own version of require.js in your project -->
-<script data-main="main.js" src="//marcoslin.github.io/angularAMD/js/lib/requirejs/require.js"></script>
+<script data-main="main.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
 </body>
 </html>
