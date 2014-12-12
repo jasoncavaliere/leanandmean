@@ -2,7 +2,7 @@ define(['app'], function (app) {
     app.register.service('pageFramework',function(){
         var globalData = {
             headerModel: {
-                title: "AMD Components of an angular app.",
+                title: "AngularAMD and UI Router",
                 stylesheets: [
                     {href: '//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css', type: 'text/css'}
                 ]
