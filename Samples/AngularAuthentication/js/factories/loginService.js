@@ -1,30 +1,27 @@
 define(['angularAMD'], function (angularAMD) {
     'use strict';
     angularAMD.service('loginService', ['$http',function ($http) {
-        var self=this;
-        self.instance = {};
-        self.instance.token = '';
-        self.instance.isLoggedIn=function(){
-            self.instance.token!='';
+        var service  = {};
+        service.token = '';
+        service.loggedInUser = '';
+        service.isLoggedIn=function(){
+          return this.token!='';
         };
-        self.instance.isAuthorized = function(){
-            if(!self.instance.isLoggedIn()){
+        service.isAuthorized = function(toState){
+            var loggedIn =this.isLoggedIn();
+            if(!loggedIn){
                 return false;
             }
             //todo - add oauth type code here...
             return true;
         };
-        self.instance.doLogin=function(username,password){
-            alert('logging in as ' + username + '/' + password);
-            self.instance.token= 'test token';
+        service.doLogin=function(username,password){
+                this.token= 'test token';
+                this.loggedInUser = username;
+                return {username:username,status:0};
         };
-
-
-        return self.instance;
+        return service;
     }]);
-
-
-
 });
 
 

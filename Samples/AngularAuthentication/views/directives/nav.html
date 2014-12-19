@@ -1,7 +1,15 @@
 <div class="row">
-<ul class="list-inline">
-    <li ng-Repeat="link in nav.links"><a ui-sref="{{link.sref}}">{{link.text}}</a></li>
-</ul>
-<a class="btn-primary pull-right" ng-click="doLogin('','')">LOG ME IN!!</a>
-<hr>
+    <ul class="list-inline">
+        <li ng-Repeat="link in nav.links"><a ui-sref="{{link.sref}}">{{link.text}}</a></li>
+    </ul>
+
+    <div class="pull-right" ng-show="showLogin==false">
+        Welcome {{loggedInUser}}
+    </div>
+    <div class="pull-right" ng-show="showLogin==true">
+        <input ng-model="username">
+        <input ng-model="password" type="password">
+        <a class="btn-primary" ng-click="doLogin(username,password)">LOG ME IN!!</a>
+    </div>
+    <hr>
 </div>
