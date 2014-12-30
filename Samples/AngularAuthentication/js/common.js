@@ -4,8 +4,7 @@ define([
     'directives/styles',
     'directives/header',
     'directives/footer',
-    'directives/nav',
-    'factories/loginService'
+    'directives/nav'
 ], function (angularAMD) {
     'use strict';
     return angularAMD;

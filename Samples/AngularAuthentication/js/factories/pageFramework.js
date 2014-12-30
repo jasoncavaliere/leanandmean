@@ -28,7 +28,6 @@ define(['app'], function (app) {
                 controllerScope.header = globalData.headerModel;
                 controllerScope.nav=globalData.nav;
                 controllerScope.footer=globalData.footer;
-                controllerScope.doLogin = app.loginService.doLogin;
             }
         };
         return exports ;
