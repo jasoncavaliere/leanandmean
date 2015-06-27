@@ -1,5 +1,4 @@
-﻿using System;
-namespace WriterApp.Publisher
+﻿namespace ReadWriteCommon.Publisher
 {
     public class PublishResponse<T>
     {

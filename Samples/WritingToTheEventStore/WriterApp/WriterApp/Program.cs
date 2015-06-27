@@ -1,4 +1,4 @@
-﻿using WriterApp.Publisher;
+﻿using ReadWriteCommon.Publisher;
 namespace WriterApp
 {
     internal class Program
@@ -9,7 +9,9 @@ namespace WriterApp
             {
                 Message = "Hello Eventing World!"
             };
-            new EventPublisher<TestEventHappened>().Publish<object>(testEventHappened);
+            var eventPublisher = new EventPublisher<TestEventHappened>();
+        
+            eventPublisher.Publish<object>(testEventHappened);
         }
     }
 }

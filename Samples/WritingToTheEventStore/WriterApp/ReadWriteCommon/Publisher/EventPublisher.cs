@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using EventStore.ClientAPI;
+using EventStore.ClientAPI.SystemData;
 using Newtonsoft.Json;
-namespace WriterApp.Publisher
+namespace ReadWriteCommon.Publisher
 {
     public interface IEventPublisher<T> where T : PublishedEvent<T>, new()
     {
@@ -37,6 +35,18 @@ namespace WriterApp.Publisher
         }
 
 
+        public void DeleteStreme() 
+        {
+            var stream = GetStreamInfo<T>();
+            var conn = BuildConnection();
+            conn.ConnectAsync().Wait();
+            conn.DeleteStreamAsync(stream.StreamName,0,true).Wait();
+            conn.Close();
+
+           
+        }
+
+
         public PublishResponse<TReturnType> Publish<TReturnType>(T item) where TReturnType : new()
         {
             var stream = GetStreamInfo<T>();
@@ -61,7 +71,6 @@ namespace WriterApp.Publisher
             bool isJson = true;
             var eventType = GetEventType();
             var eventDataFor = new EventData(eventId, eventType, isJson, GetSerializedBytes(item), GetSerializedBytes(new {}));
-            eventDataFor.
             return eventDataFor;
         }
 

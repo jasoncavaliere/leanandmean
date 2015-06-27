@@ -1,4 +1,4 @@
-namespace WriterApp.Publisher
+namespace ReadWriteCommon.Publisher
 {
     public class EventStream
     {

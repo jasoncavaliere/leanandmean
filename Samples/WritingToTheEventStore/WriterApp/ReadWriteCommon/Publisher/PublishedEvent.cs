@@ -1,4 +1,4 @@
-﻿namespace WriterApp.Publisher
+﻿namespace ReadWriteCommon.Publisher
 {
 
     public abstract class PublishedEvent<T>
